@@ -9,7 +9,7 @@ interface Props {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   completedTodos: Todo[];
   setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-}
+};
 
 const TodoList: React.FC <Props> = ({todos, setTodos, completedTodos, setCompletedTodos}) => {
   return ( 
