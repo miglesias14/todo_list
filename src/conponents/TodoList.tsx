@@ -4,13 +4,12 @@ import SingleTodo from "./SingleTodo";
 import  { Droppable } from "react-beautiful-dnd";
 import "./styles.css"; 
 
- 
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   completedTodos: Todo[];
   setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-};
+}
 
 const TodoList: React.FC <Props> = ({todos, setTodos, completedTodos, setCompletedTodos}) => {
   return ( 
@@ -37,7 +36,7 @@ const TodoList: React.FC <Props> = ({todos, setTodos, completedTodos, setComplet
 
       </Droppable>
       <Droppable droppableId="TodosRemove">
-        {(provided, snapshot)=> (
+        {(provided, snapshot) => (
         <div className={`todos remove ${snapshot.isDraggingOver ? "dragcomplete": ""}`}
         ref={provided.innerRef}
         {...provided.droppableProps}

@@ -3,10 +3,9 @@ import "./App.css";
 import InputField from "./conponents/InputField";
 import TodoList from "./conponents/TodoList";
 import { Todo } from "./model";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { DragDropContext, DropResult} from "react-beautiful-dnd";
 
 const App: React.FC = () => {
-
 const [todo, setTodo] = useState<string>("");
 const [todos, setTodos] = useState<Todo[]>([]);
 const [completedTodos, setCompletedTodos] = useState <Todo[]>([]);
@@ -15,12 +14,12 @@ const [completedTodos, setCompletedTodos] = useState <Todo[]>([]);
     e.preventDefault();
 
     if (todo) {
-      setTodos([...todos,{id: Date.now(), todo, isDone:false }])
+      setTodos([...todos, { id: Date.now(), todo, isDone:false }]);
       setTodo("");
     }
   };
 
-  const onDragEnd = (result:DropResult) => {
+  const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
 
     if(!destination) return;
@@ -39,7 +38,7 @@ const [completedTodos, setCompletedTodos] = useState <Todo[]>([]);
       complete.splice(source.index, 1);
     }
 
-    if (destination.droppableId ==="TodosList"){
+    if (destination.droppableId === "TodosList") {
       active.splice(destination.index, 0, add);
     } else {
       complete.splice(destination.index, 0, add);

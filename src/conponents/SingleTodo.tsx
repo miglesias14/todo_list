@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Draggable} from 'react-beautiful-dnd';
 import { Todo } from "../model";
 import {CiEdit} from 'react-icons/ci';
 import {MdDelete, MdDone} from 'react-icons/md';
 import "./styles.css";
-
+import {Draggable} from 'react-beautiful-dnd';
 
 type Props =  {
   index: number;
@@ -41,8 +40,8 @@ const handleEdit = (e:React.FormEvent, id:number) => {
 const inputRef = useRef<HTMLInputElement>(null);
 
 useEffect(() => {
-    inputRef.current?.focus();
-}, [edit]);
+  inputRef.current?.focus();
+  }, [edit]);
 
   return (
     <Draggable draggableId={todo.id.toString()} index={index}>
@@ -71,8 +70,8 @@ useEffect(() => {
             if(!edit && !todo.isDone){
               setEdit(!edit);
             }
-          }
-          } >
+          }}
+           >
           <CiEdit/> 
           </span>
           <span className="icon" onClick={() =>handleDone(todo.id)}>
